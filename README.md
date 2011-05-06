@@ -79,6 +79,7 @@ Installation
               app_id: 123456879
               secret: s3cr3t
               cookie: true
+              permissions: ['email']
 
           # application/config/config.xml
           <fos_facebook:api
@@ -193,7 +194,7 @@ to the "auth.login" event and then redirect to the "check_path":
 
     <script>
       FB.Event.subscribe('auth.login', function(response) {
-        window.location = {{ path('_security_check') }};
+        window.location.href = '{{ path("_security_check") }}';
       });
     </script>
 
