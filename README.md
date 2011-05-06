@@ -215,7 +215,7 @@ to the "auth.login" event and then redirect to the "check_path":
 
     <script>
       FB.Event.subscribe('auth.login', function(response) {
-        window.location = {{ path('_security_check') }};
+        window.location.href = '{{ path("_security_check") }}';
       });
     </script>
 
