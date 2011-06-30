@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FOS\FacebookBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
@@ -28,11 +37,11 @@ class FOSFacebookExtension extends Extension
         }
 
         foreach (array('api', 'helper', 'twig') as $attribute) {
-            $container->setParameter('fos_facebook.' . $attribute . '.class', $config['class'][$attribute]);
+            $container->setParameter('fos_facebook.'.$attribute.'.class', $config['class'][$attribute]);
         }
 
         foreach (array('file', 'app_id', 'secret', 'cookie', 'domain', 'logging', 'culture', 'permissions') as $attribute) {
-            $container->setParameter('fos_facebook.' . $attribute, $config[$attribute]);
+            $container->setParameter('fos_facebook.'.$attribute, $config[$attribute]);
         }
     }
 

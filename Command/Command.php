@@ -1,44 +1,34 @@
 <?php
+
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FOS\FacebookBundle\Command;
 
-
-use Symfony\Component\Console\Output\Output;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Bundle\FrameworkBundle\Command\Command as BaseCommand;
-use Symfony\Component\Console\Input\InputDefinition;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 /**
  * Command.
  *
  * @author Marcin Sikoń <marcin.sikon@gmail.com>
  */
-abstract class Command extends BaseCommand
+abstract class Command extends ContainerAwareCommand
 {
-
-    /**
-     * Sets the Container associated with this Command.
-     *
-     * @param ContainerInterface $container A ContainerInterface instance
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
-    
-    
     /**
      * get facebook sdk
-     * 
+     *
      * @codeCoverageIgnore
-     * 
+     *
      * @return \Facebook
      */
-    public function getFacebook() {
-        return $this->container->get('fos_facebook.api');
+    public function getFacebook()
+    {
+        return $this->getContainer()->get('fos_facebook.api');
     }
 }

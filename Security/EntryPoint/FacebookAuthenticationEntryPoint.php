@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FOS\FacebookBundle\Security\EntryPoint;
 
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -7,8 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\SecurityContext;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 /**
  * FacebookAuthenticationEntryPoint starts an authentication via Facebook.

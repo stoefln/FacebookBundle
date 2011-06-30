@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FOS\FacebookBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder,
@@ -26,6 +35,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('fos_facebook');
 
         $rootNode
+            ->fixXmlConfig('permission', 'permissions')
             ->children()
                 ->scalarNode('app_id')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('secret')->isRequired()->cannotBeEmpty()->end()
@@ -43,7 +53,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('twig')->defaultValue('FOS\FacebookBundle\Twig\Extension\FacebookExtension')->end()
                     ->end()
                 ->end()
-                ->arrayNode('permissions')->prototype('scalar')->end()->end();
+                ->arrayNode('permissions')->prototype('scalar')->end()
+            ->end();
 
         return $treeBuilder;
     }

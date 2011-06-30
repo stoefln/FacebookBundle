@@ -1,12 +1,20 @@
 <?php
 
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace FOS\FacebookBundle\Security\Authentication\Provider;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 
@@ -72,15 +80,5 @@ class FacebookProvider implements AuthenticationProviderInterface
         $this->userChecker->checkPostAuth($user);
 
         return new FacebookUserToken($user, $user->getRoles());
-    }
-
-    /**
-     * Refresh a user
-     *
-     * @param UserInterface $user
-     */
-    public function loadUser(UserInterface $user)
-    {
-        throw new UnsupportedUserException('User is not supported.');
     }
 }

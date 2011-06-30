@@ -1,6 +1,15 @@
 <?php
-namespace FOS\FacebookBundle\Command;
 
+/*
+ * This file is part of the FOSFacebookBundle package.
+ *
+ * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace FOS\FacebookBundle\Command;
 
 use Symfony\Component\Console\Output\Output;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
@@ -10,7 +19,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 /**
  * Abstract class of TestUsers commands
  *
@@ -18,9 +26,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 abstract class TestUsersCommand extends Command
 {
-
     const TEST_USERS_PATH = '/accounts/test-users';
-
 
     /**
      * ApplicationAccessTokenComand
@@ -29,31 +35,32 @@ abstract class TestUsersCommand extends Command
      */
     private $applicationAccessTokenCommand;
 
-    
     /**
      * Get application access token
-     * 
+     *
      * @codeCoverageIgnore
      *
      * @param \Facebook $facebook
      * @return string access token
      */
-    public function setApplicationAccessTokenCommand(\FOS\FacebookBundle\Command\ApplicationAccessTokenCommand $command) {
+    public function setApplicationAccessTokenCommand(ApplicationAccessTokenCommand $command)
+    {
         $this->applicationAccessTokenCommand = $command;
     }
 
     /**
      * Get application access token
-     * 
+     *
      * @codeCoverageIgnore
      *
      * @param \Facebook $facebook
      * @return string access token
      */
-    protected function getApplicationAccessToken(\Facebook $facebook) {
+    protected function getApplicationAccessToken(\Facebook $facebook)
+    {
         if (null == $this->applicationAccessTokenCommand) {
             $applicationAccessTokenCommand = new ApplicationAccessTokenCommand();
-            $applicationAccessTokenCommand->setContainer($this->container);
+            $applicationAccessTokenCommand->setContainer($this->getContainer());
             $this->applicationAccessTokenCommand = $applicationAccessTokenCommand;
         }
 

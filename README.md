@@ -79,7 +79,7 @@ Installation
               app_id: 123456879
               secret: s3cr3t
               cookie: true
-              permissions: ['email']
+              permissions: [email, user_birthday, user_location]
 
           # application/config/config.xml
           <fos_facebook:api
@@ -88,7 +88,11 @@ Installation
               app_id="123456879"
               secret="s3cr3t"
               cookie="true"
-          />
+          >
+                <permission>email</permission>
+                <permission>user_birthday</permission>
+                <permission>user_location</permission>
+          </fos_facebook:api>
 
      If you do not include a `file` value in the config you will have to
      configure your application to autoload the `Facebook` class.
@@ -288,7 +292,7 @@ to the provider id in the "provider" section in the config.yml:
             return $user;
         }
 
-        public function loadUser(UserInterface $user)
+        public function refreshUser(UserInterface $user)
         {
             if (!$this->supportsClass(get_class($user)) || !$user->getFacebookId()) {
                 throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
