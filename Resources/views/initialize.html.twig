@@ -8,11 +8,8 @@
 window.fbAsyncInit = function() {
 {% endif %}
   FB.init({{ {'appId':appId, 'xfbml':xfbml, 'session':session, 'status':status, 'cookie':cookie, 'logging':logging }|json_encode }});
-  if(typeof(fb_auth_login_handler) != 'undefined'){
-    FB.Event.subscribe('auth.login', fb_auth_login_handler);
-  }
-  if(typeof(fb_auth_logout_handler) != 'undefined'){
-    FB.Event.subscribe('auth.logout', fb_auth_logout_handler);
+  if(typeof(fb_init_handler) != 'undefined'){
+    fb_init_handler();
   }
 {% if async %}
   {{ fbAsyncInit }}
