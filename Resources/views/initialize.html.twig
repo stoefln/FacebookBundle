@@ -8,7 +8,7 @@
 window.fbAsyncInit = function() {
 {% endif %}
   FB.init({{ {'appId':appId, 'xfbml':xfbml, 'session':session, 'status':status, 'cookie':cookie, 'logging':logging }|json_encode }});
-  if(typeof(fb_init_handler) != 'undefined'){
+  if (typeof(fb_init_handler) != 'undefined') {
     fb_init_handler();
   }
 {% if async %}
