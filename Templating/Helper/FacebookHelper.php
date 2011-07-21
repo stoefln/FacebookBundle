@@ -23,7 +23,8 @@ class FacebookHelper extends Helper
     protected $permissions;
     protected $facebook;
 
-    public function __construct(EngineInterface $templating, Facebook $facebook, $logging = true, $culture = 'en_US', array $permissions = array())
+
+    public function __construct(EngineInterface $templating, \BaseFacebook $facebook, $logging = true, $culture = 'en_US', array $permissions = array())
     {
         $this->templating  = $templating;
         $this->logging     = $logging;
@@ -60,9 +61,9 @@ class FacebookHelper extends Helper
             'fbAsyncInit' => '',
             'appId'       => (string) $this->facebook->getAppId(),
             'xfbml'       => false,
-            'session'     => ($session) ? $session : null,
+            'session'     => true,
             'status'      => false,
-            'cookie'      => $this->facebook->useCookieSupport(),
+            'cookie'      => true,
             'logging'     => $this->logging,
             'culture'     => $this->culture,
         ));
