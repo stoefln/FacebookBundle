@@ -97,15 +97,7 @@ Installation
               app_id: 123456879
               secret: s3cr3t
               cookie: true
-<<<<<<< HEAD
-<<<<<<< HEAD
-              permissions: [email, user_birthday, user_location]
-=======
               permissions: ['email']
->>>>>>> fixed wrong javascript instruction in readme
-=======
-              permissions: [email, user_birthday, user_location]
->>>>>>> merged with FOS updates
 
           # application/config/config.xml
           <fos_facebook:api
