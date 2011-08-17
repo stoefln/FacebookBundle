@@ -227,7 +227,8 @@ still needs to be triggered. To do this you will in most cases simply subscribe
 to the "auth.login" event and then redirect to the "check_path":
 
     <script type="text/javascript">
-         window.fbAsyncInit = (function(originalFunc) {
+    //<![CDATA[
+        window.fbAsyncInit = (function(originalFunc) {
             return function() {
                 if (originalFunc) originalFunc();
                 FB.Event.subscribe('auth.login', function(response) {
@@ -238,6 +239,7 @@ to the "auth.login" event and then redirect to the "check_path":
                 });
             };
         })(window.fbAsyncInit);
+    //]]>
     </script>
 
 The "_security_check" route would need to point to a "/login_check" pattern

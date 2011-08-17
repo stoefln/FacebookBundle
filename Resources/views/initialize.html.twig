@@ -2,6 +2,7 @@
 
 <script type="text/javascript">
 {% autoescape false %}
+//<![CDATA[
 window.fbAsyncInit = (function(originalFunc) {
     return function() {
         if (originalFunc) originalFunc();
@@ -15,5 +16,6 @@ window.fbAsyncInit = (function(originalFunc) {
   e.async = true;
   document.getElementById('fb-root').appendChild(e);
 }());
+//]]>
 {% endautoescape %}
 </script>
