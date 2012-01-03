@@ -41,6 +41,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('secret')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('file')->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('cookie')->defaultFalse()->end()
+                ->scalarNode('file_upload')->defaultFalse()->end()
                 ->scalarNode('domain')->defaultNull()->end()
                 ->scalarNode('alias')->defaultNull()->end()
                 ->scalarNode('logging')->defaultValue('%kernel.debug%')->end()
