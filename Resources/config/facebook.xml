@@ -12,9 +12,10 @@
                 <argument key="appId">%fos_facebook.app_id%</argument>
                 <argument key="secret">%fos_facebook.secret%</argument>
                 <argument key="cookie">%fos_facebook.cookie%</argument>
+                <argument key="fileUpload">%fos_facebook.file_upload%</argument>
                 <argument key="domain">%fos_facebook.domain%</argument>
             </argument>
-           	<argument type="service" id="session" />
+            <argument type="service" id="session" />
         </service>
 
         <service id="fos_facebook.helper" class="%fos_facebook.helper.class%">
